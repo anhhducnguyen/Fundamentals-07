@@ -20,6 +20,10 @@ class BaseModel {
         return db(this.tableName).where("id", id).first();
     }
 
+    async getByJobId(id) {
+        return db(this.tableName).where("jobId", id).first();
+    }
+
     async findByField(field, value) {
         return db(this.tableName).where(field, value).first();
     }
@@ -29,11 +33,11 @@ class BaseModel {
     }
 
     async update(id, data) {
-        return db(this.tableName).where("id", id).update(data);
+        return db(this.tableName).where("jobId", id).update(data);
     }
 
     async delete(id) {
-        return db(this.tableName).where("id", id).del();
+        return db(this.tableName).where("jobId", id).del();
     }
 }
 
